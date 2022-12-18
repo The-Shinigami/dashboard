@@ -1,0 +1,40 @@
+<div class="dropdown float-lg-end  tw-w-fit tw-bg-white tw-mr-2 tw-rounded-sm">
+  <a class="cursor-pointer " id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="assets/img/icons/down-arrow.svg" alt="">
+  </a>
+
+  <ul class="dropdown-menu py-3 ms-sm-n4 ms-n5  tw-text-center" aria-labelledby="dropdownTable">
+    <li>
+      <form action="">
+        <div>
+          <div class="tw-mb-1">
+            <select class="tw-cursor-pointer tw-text-center tw-w-full " type="text" name="" id="">
+              <option value="" selected disabled>Select First Product</option>
+              <option value="1">Mobile apps</option>
+              <option value="2">Web apps</option>
+            </select>
+          </div>
+          <div class="tw-mb-1">
+            <select class="tw-cursor-pointer tw-text-center tw-w-full " type="text" name="" id="">
+              <option value="" selected disabled>Select Second Product</option>
+              <option value="1">Mobile apps</option>
+              <option value="2">Web apps</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </li>
+    <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2022</a></li>
+    <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2021</a></li>
+    <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2020</a></li>
+
+  </ul>
+
+</div>
+<div class=" pb-0">
+  <h6>Sales overview ({{product_1.label +"/"+ product_2.label}})</h6>
+</div>
+
+<div>
+  <canvas id="chart-line" class="chart-canvas  tw-h-full"></canvas>
+</div>

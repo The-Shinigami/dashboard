@@ -1,0 +1,58 @@
+    
+    <div>
+<div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
+        target="_blank">
+        <img src="/assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+        <span class="ms-1 font-weight-bold">Dashboard</span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0">
+    <div style="height:fit-content;" class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
+      <ul  class="navbar-nav">
+        <li *ngFor="let link of links" class="nav-item">
+
+          <a *ngIf="link.active == true" class="nav-link  active" [href]="link.url">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+             <img [src]="link.icon" alt="">
+            </div>
+            <span class="nav-link-text ms-1">{{link.title}}</span>
+          </a>
+           <a *ngIf="link.active == false" class="nav-link " [href]="link.url">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+             <img [src]="link.icon" alt="">
+            </div>
+            <span class="nav-link-text ms-1">{{link.title}}</span>
+          </a>
+        </li>
+       
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
+        </li>
+        <li *ngFor="let accountLink of accountLinks" class="nav-item">
+          <a *ngIf="accountLink.active == true" class="nav-link  active" [href]="accountLink.url">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img [src]="accountLink.icon" alt="">
+            </div>
+            <span class="nav-link-text ms-1">{{accountLink.title}}</span>
+          </a>
+           <a *ngIf="accountLink.active == false" class="nav-link " [href]="accountLink.url">
+            <div
+              class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+              <img [src]="accountLink.icon" alt="">
+            </div>
+            <span class="nav-link-text ms-1">{{accountLink.title}}</span>
+          </a>
+        </li>
+       
+       
+      </ul>
+    </div>
+    </div>
+    
+ 

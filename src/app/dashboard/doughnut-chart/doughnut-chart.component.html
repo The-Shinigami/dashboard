@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col">
+    <div class="card tw-bg-slate-100 tw-h-full">
+      <div class="card-body">
+
+        <form class="tw-flex tw-h-full"  (ngSubmit)="onSubmit()"  [formGroup]="doughnutChartForm">
+          <div class="tw-m-auto">
+            <div class="row tw-my-3">
+              <label class="col tw-text-sm" for="">Month/Year : </label>
+              <input class="col" #monthInput type="month" min="2000-03" max="" formControlName="month">
+            </div>
+            <div class="row tw-my-3">
+                <label class="col tw-text-sm" for="">Select : </label>
+            </div>
+            <div class="row  justify-content-center">
+              <label #percentage (click)="pick(percentage)" class="col-6  tw-text-sm tw-cursor-pointer tw-border-slate-700 tw-border-4 tw-border-solid tw-bg-blue-200 tw-p-1  tw-rounded-sm tw-text-center hover:tw-bg-slate-200" for="percentage">Percentage</label>
+              
+            </div>
+            <div class="row tw-my-3 justify-content-center">
+              <label #value (click)="pick(value)" class="col-6 tw-text-sm tw-cursor-pointer tw-border-slate-700  tw-border-solid tw-bg-blue-200 tw-p-1  tw-rounded-sm tw-text-center hover:tw-bg-slate-200" for="value">Values </label>
+     
+            </div>
+
+            <div class="tw-w-full tw-flex">
+            <button class="btn tw-w-full tw-bg-white tw-m-auto" >Apply changes</button>
+            </div>
+            <!-- list input radio -->
+           <div>
+             <input #percentageInput class="tw-opacity-0" id="percentage" type="radio" name="labelName" value="percentage" formControlName="labelName">
+              <input #valueInput class="tw-opacity-0" id="value" type="radio" name="labelName" value="value" formControlName="labelName">
+              <input #nullInput class="tw-opacity-0" id="null" type="radio" name="labelName" value="null" formControlName="labelName">
+           </div>
+
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <canvas id="chart-doughnut" class="chart-canvas"></canvas>
+  </div>
+</div>
