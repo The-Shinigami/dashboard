@@ -7,21 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashBoardComponent implements OnInit {
   cards = [
-    { title: "Today's Money", value: "$53,000", percentage: "+55%" ,icon: "assets/img/percentage-cards-svgs/cash.svg"},
-    { title: "Today's Users", value: "2,300", percentage: "+3%" ,icon: "assets/img/percentage-cards-svgs/users.svg"},
-    { title: "New Clients", value: "+3,462", percentage: "-2%" ,icon: "assets/img/percentage-cards-svgs/new-clients.svg"},
-    { title: "Sales", value: "$103,430", percentage: "+5%" ,icon: "assets/img/percentage-cards-svgs/sales.svg"}   
+    { title: "This Year's Authors", value: "0", percentage: "0%" ,icon: "assets/img/percentage-cards-svgs/users.svg"},
+    { title: "This Year's Journals", value: "0", percentage: "0%" ,icon: "assets/img/percentage-cards-svgs/cash.svg"},
+    { title: "This Year's Universeties", value: "0", percentage: "+0%" ,icon: "assets/img/percentage-cards-svgs/new-clients.svg"},
+    { title: "New Countries", value: "0", percentage: "+0%" ,icon: "assets/img/percentage-cards-svgs/sales.svg"}   
   ]
-  salesChart = [
+journalsChart = [
     {key:"2020",value: {
       labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       data: [450, 200, 100, 220, 500, 100, 400, 230, 500, 20, 500, 100],
-      title: "Sales for 2020"
+      title: "Journals for 2020"
     }},
     {key:"2021",value: {
       labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       data: [40, 20, 100, 220, 500, 300, 200, 230, 600, 200, 50, 10],
-      title: "Sales for 2021"
+      title: "Journals for 2021"
     }
     },
      {key:"2022",value: {
@@ -30,21 +30,23 @@ export class DashBoardComponent implements OnInit {
       title: "Sales for 2022"
     }}
   ]
-  twoProductsSalesChart =  {
-      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    product_1: {
-      label:"Mobile apps",
-      data: [50, 40, 300, 220, 500, 250, 400, 230, 500,550, 400, 600],
-    },
-    product_2: {
-      label:"Web apps",
-      data: [30, 90, 40, 140, 290, 290, 340, 230, 400,500, 550, 500],
-        }
+  twoCountriesJournalsChart =  {
+      labels: ["2017", "2018", "2020", "2020",],
+      values :[
+       {
+          label:"Chine",
+          data: [50, 40, 300, 0],
+        },
+      {
+          label:"Span",
+          data: [30, 0, 40, 140],
+            }
+      ]
       }
   TopSalesDoughnutChart = {
-    labels: ["Nike", "Adidas", "Puma", "Reebok", "Asics"],
+    labels: ["Q1", "Q2", "Q3", "Q2", "Q5"],
     data:[12, 19, 3, 5,6],
-    title : "Top Products Sales "
+    title : "Quartiles percentage in 2022"
   }
   Projects = [
     { task: "Soft UI XD Version", members: [], budget: "14,000", completion: "" },

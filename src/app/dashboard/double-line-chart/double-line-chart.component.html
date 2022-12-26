@@ -8,31 +8,29 @@
       <form action="">
         <div>
           <div class="tw-mb-1">
-            <select class="tw-cursor-pointer tw-text-center tw-w-full " type="text" name="" id="">
-              <option value="" selected disabled>Select First Product</option>
-              <option value="1">Mobile apps</option>
-              <option value="2">Web apps</option>
+            <select [value]="firstCountrySelected" (change)="onFirstCountryChange($event.target)" class="tw-cursor-pointer tw-text-center tw-w-full " type="text" name="" id="">
+              <option value="" selected disabled>Select First Country</option>
+              <option *ngFor="let country of listCountry" [value]=country >{{country}}</option>
             </select>
           </div>
           <div class="tw-mb-1">
-            <select class="tw-cursor-pointer tw-text-center tw-w-full " type="text" name="" id="">
-              <option value="" selected disabled>Select Second Product</option>
-              <option value="1">Mobile apps</option>
-              <option value="2">Web apps</option>
+            <select [value]="secondCountrySelected"  (change)="onSecondCountryChange($event.target)" class="tw-cursor-pointer tw-text-center tw-w-full " type="text" name="" id="">
+              <option value="" selected disabled>Select Second Country</option>
+              <option *ngFor="let country of listCountry" [value]=country >{{country}}</option>
             </select>
           </div>
         </div>
       </form>
     </li>
-    <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2022</a></li>
+    <!-- <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2022</a></li>
     <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2021</a></li>
-    <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2020</a></li>
+    <li><a class="dropdown-item border-radius-md" (click)="selectYear($event)" href="javascript:;">2020</a></li> -->
 
   </ul>
 
 </div>
 <div class=" pb-0">
-  <h6>Sales overview ({{product_1.label +"/"+ product_2.label}})</h6>
+  <h6>Publications overview ({{firstCountrySelected +"/"+ secondCountrySelected}})</h6>
 </div>
 
 <div>

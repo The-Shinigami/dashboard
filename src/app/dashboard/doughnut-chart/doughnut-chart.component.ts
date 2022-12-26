@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Chart } from 'chart.js';
 import { registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { DonutService } from 'src/app/service/donut/donut.service';
 Chart.register(...registerables);
 
 
@@ -15,7 +16,7 @@ export class DoughnutChartComponent implements OnInit,AfterViewInit {
 
   @Input() labels: any;
   @Input() data: any;
-  @Input() title: string = "Sales";
+  @Input() title: string = "Quartiles";
 
   @ViewChild("monthInput") monthInput !: ElementRef<HTMLInputElement>; 
   @ViewChild("percentageInput") percentageInput!: ElementRef<HTMLInputElement>;
@@ -27,11 +28,13 @@ export class DoughnutChartComponent implements OnInit,AfterViewInit {
   myChart: any;
 
   doughnutChartForm: FormGroup;
-  constructor() {
+  constructor(private donutService:DonutService
+    ) {
     this.doughnutChartForm = new FormGroup({
       month: new FormControl('2020-05'),
       labelName: new FormControl('percentage'),
     });
+
   }
   
   ngAfterViewInit(): void {
@@ -43,58 +46,64 @@ export class DoughnutChartComponent implements OnInit,AfterViewInit {
   
   
   ngOnInit(): void {
-     this.myChart = new Chart('chart-doughnut', {
-       type: 'doughnut',
-         plugins: [ChartDataLabels],
-       data: {
-    labels: this.labels,
-    datasets: [{
-      label: '',
-      data: this.data,
-      backgroundColor: [
-        "rgba( 105, 210, 231, 0.5)",
-         "rgba(192,192,192, 0.5)",
-        "rgba(32,178,170, 0.5)",
-        "rgba(222,184,135, 0.5)",
-             "rgba(238,130,238, 0.5)"
-      ],
-      borderColor: [
-      "rgba( 105, 210, 231, 1)",
-        "rgba(192,192,192, 1)",
-         "rgba(32,178,170, 1)",
-        "rgba(222,184,135, 1)",
-          "rgba(238,130,238, 1)"
-      ],
-      borderWidth: 3
-    }]
-  },
-       options: {
-    maintainAspectRatio: false,
-    responsive: true,
-         plugins: {
-           datalabels: {           
-             color: '#000',
-             font: {
-               size: 0,
-               weight: 'bold'               
-             },
+    this.donutService.getDonut().then(response =>{
+      this.labels =response.data.labels;
+      this.data = response.data.data;
+      this.title = response.data.tile;
 
-             formatter: (value:any) => {
-               return value + '%';
-             }
-    
-           },
-           title: {
-                display: true,
-             text: this.title+this.doughnutChartForm.get('month')?.value,
-             font: {
-               size: 24,
-               weight: 'bold'
-             }
+     this.myChart = new Chart('chart-doughnut', {
+      type: 'doughnut',
+        plugins: [ChartDataLabels],
+      data: {
+   labels: this.labels,
+   datasets: [{
+     label: '',
+     data: this.data,
+     backgroundColor: [
+       "rgba( 105, 210, 231, 0.5)",
+        "rgba(192,192,192, 0.5)",
+       "rgba(32,178,170, 0.5)",
+       "rgba(222,184,135, 0.5)",
+            "rgba(238,130,238, 0.5)"
+     ],
+     borderColor: [
+     "rgba( 105, 210, 231, 1)",
+       "rgba(192,192,192, 1)",
+        "rgba(32,178,170, 1)",
+       "rgba(222,184,135, 1)",
+         "rgba(238,130,238, 1)"
+     ],
+     borderWidth: 3
+   }]
+ },
+      options: {
+   maintainAspectRatio: false,
+   responsive: true,
+        plugins: {
+          datalabels: {           
+            color: '#000',
+            font: {
+              size: 0,
+              weight: 'bold'               
+            },
+
+            formatter: (value:any) => {
+              return value + '%';
             }
-         },
-  }
+   
+          },
+          title: {
+               display: true,
+            text: this.title+this.doughnutChartForm.get('month')?.value,
+            font: {
+              size: 24,
+              weight: 'bold'
+            }
+           }
+        },
+ }
 }); 
+    })
   }
 
   
@@ -113,7 +122,7 @@ export class DoughnutChartComponent implements OnInit,AfterViewInit {
             },
 
             formatter: (value: any) => {
-              return ((value/this.data.reduce((partialSum:any, a:any) => partialSum + a, 0))*100).toPrecision(3) + '%';
+              return ((value/this.data.reduce((partialSum:any, a:any) => partialSum + a, 0))*100).toPrecision(1) + '%';
             }
     
           };

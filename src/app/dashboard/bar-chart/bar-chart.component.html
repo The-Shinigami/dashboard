@@ -10,8 +10,7 @@
   </ul>
 </div>
 
-
-<div class="tw-text-center tw-text-white tw-font-bold tw-text-xl">{{selectedYearSalesChart.value.title}}</div>
+<div *ngIf="load" class="tw-text-center tw-text-white tw-font-bold tw-text-xl">{{selectedYearSalesChart.value.title}}</div>
 <div>
   <canvas id="chart-bars" class="chart-canvas tw-h-full"></canvas>
 </div>
