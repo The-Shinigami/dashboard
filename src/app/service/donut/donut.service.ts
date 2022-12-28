@@ -9,9 +9,10 @@ export class DonutService {
 
   constructor() { }
 
-  getDonut() {
+  getDonut(year:string) {
    return  axios.get('http://localhost:4567/donut',{
      params: {
+      year:year
      },
      headers: {
        'Content-Type': 'application/json'

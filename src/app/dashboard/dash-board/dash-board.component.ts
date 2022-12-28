@@ -48,13 +48,13 @@ journalsChart = [
     data:[12, 19, 3, 5,6],
     title : "Quartiles percentage in 2022"
   }
-  Projects = [
-    { task: "Soft UI XD Version", members: [], budget: "14,000", completion: "" },
-    { task: "Add Progress Track", members: [], budget: "3,000", completion: "" },
-    { task: "Fix Platform Errors", members: [], budget: "Not Set", completion: "" },
-    { task: "Launch our Mobile App", members: [], budget: "20,500", completion: "" },
-    { task: "Add the New Pricing Page", members: [], budget: "500", completion: "" },
-    { task: "Redesign New Online Shop", members: [], budget: "2,000", completion: "" },
+  journals = [
+    { title: "Soft UI XD Version", authors: ["a","b"], year: "14,000", quartile: "" },
+    { title: "Add Progress Track", authors: ["a","b"], year: "3,000", quartile: "" },
+    { title: "Fix Platform Errors", authors: ["a","b"], year: "Not Set", quartile: "" },
+    { title: "Launch our Mobile App", authors: ["a","b"], year: "20,500", quartile: "" },
+    { title: "Add the New Pricing Page", authors: ["a","b"], year: "500", quartile: "" },
+    { title: "Redesign New Online Shop", authors: ["a","b"], year: "2,000", quartile: "" },
     
   ];
   constructor() {}

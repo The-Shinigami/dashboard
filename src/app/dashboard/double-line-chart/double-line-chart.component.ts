@@ -106,7 +106,7 @@ export class DoubleLineChartComponent implements OnInit {
                   size: 11,
                   family: "Open Sans",
                   style: 'normal',
-                  lineHeight: 2
+                  lineHeight: 1
                 },
               }
             },
