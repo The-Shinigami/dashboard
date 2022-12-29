@@ -8088,9 +8088,10 @@ fieldset:disabled .btn {
 .break-word {
   word-break: break-word!important;
   overflow-wrap: break-word!important;
-  overflow: hidden!important;
-  width: 200px!important;
-  max-width: 200px!important;
+overflow: scroll;
+  width: 400px!important;
+  max-width: 400px!important;
+  height: 50px;
 }
 
 .d-table-cell {

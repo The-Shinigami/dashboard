@@ -15,7 +15,7 @@ export class ProjectsComponent implements OnInit {
 
 
   data: any[] =  [{
-    title: "The Ui jounrla",
+    title: "The Ui jounrla kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
     authors: ["alon thomas","kinder jonson","alon thomas"],
     quartile: "Q1",
     year: "2020"
