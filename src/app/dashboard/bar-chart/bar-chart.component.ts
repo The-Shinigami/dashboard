@@ -39,7 +39,7 @@ export class BarChartComponent implements OnInit {
           data: {
             labels: this.selectedYearSalesChart.value.labels,
             datasets: [{
-              label: "Journals",
+              label: "Publications",
               borderWidth: 0,
               borderRadius: 4,
               borderSkipped: false,
